@@ -21,7 +21,7 @@ BUILD=${BUILD:-4.1.70-1523}
 # need to auto-detect this:
 try rm -f .listing
 MYSQL_MIRROR=ftp://mirror.anl.gov/pub/mysql/Downloads/MySQL-5.5/
-try wget --no-remove-listing $MYSQL_MIRROR
+try wget -c --no-remove-listing $MYSQL_MIRROR
 MYSQL_BUILD=`cat .listing | awk '{ print $9 }' | grep MySQL-client | grep el6.x86_64.rpm | sort | tail -n 1`
 MYSQL_BUILD="${MYSQL_BUILD##MySQL-client-}"
 MYSQL_BUILD="${MYSQL_BUILD%%.el6.*}"
@@ -52,7 +52,7 @@ fi
 try yum -y install libaio
 
 #mysql:
-if ! check_rpm MySQL-client-${MYSQL_BUILD}; then
+if ! check_rpm MySQL-client-${MYSQL_BUILD}.el6; then
   try wget $MYSQL_MIRROR/MySQL-server-${MYSQL_BUILD}.el6.x86_64.rpm
   try wget $MYSQL_MIRROR/MySQL-shared-${MYSQL_BUILD}.el6.x86_64.rpm
   try wget $MYSQL_MIRROR/MySQL-shared-compat-${MYSQL_BUILD}.el6.x86_64.rpm
@@ -86,10 +86,10 @@ try service snmpd start
 # pre-zenoss BUG
 try yum -y install dmidecode liberation-fonts-common liberation-mono-fonts liberation-sans-fonts liberation-serif-fonts sysstat 
 
-try wget http://downloads.sourceforge.net/project/zenoss/${BRANCH}/$BUILD/zenoss-$BUILD.el6.x86_64.rpm
+try wget -c http://downloads.sourceforge.net/project/zenoss/${BRANCH}/builds/$BUILD/zenoss-$BUILD.el6.x86_64.rpm
 try yum -y localinstall zenoss-$BUILD.el6.x86_64.rpm
 try service zenoss start
 
-try wget http://downloads.sourceforge.net/project/zenoss/${BRANCH}/$BUILD/zenoss-core-zenpacks-$BUILD.el6.x86_64.rpm
+try wget -c http://downloads.sourceforge.net/project/zenoss/${BRANCH}/builds/$BUILD/zenoss-core-zenpacks-$BUILD.el6.x86_64.rpm
 try yum -y localinstall zenoss-core-zenpacks-$BUILD.el6.x86_64.rpm
 
