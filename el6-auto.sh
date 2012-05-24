@@ -41,6 +41,7 @@ try yum -y install libaio
 #mysql:
 try wget $MYSQL_MIRROR/MySQL-server-${MYSQL_BUILD}.el6.x86_64.rpm
 try wget $MYSQL_MIRROR/MySQL-shared-${MYSQL_BUILD}.el6.x86_64.rpm
+try wget $MYSQL_MIRROR/MySQL-shared-compat-${MYSQL_BUILD}.el6.x86_64.rpm
 # BUG NEED:
 try wget $MYSQL_MIRROR/MySQL-client-${MYSQL_BUILD}.el6.x86_64.rpm
 try rpm -ivh MySQL-*-${MYSQL_BUILD}.el6.x86_64.rpm
