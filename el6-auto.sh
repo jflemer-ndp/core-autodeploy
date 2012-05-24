@@ -37,7 +37,7 @@ fi
 # set up rrdtool, etc.
 
 try yum -y install xorg-x11-fonts-Type1 ruby libdbi
-if ! check_rpm rpmforge-reelase; then
+if ! check_rpm rpmforge-release; then
   try wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
   try rpm -ivh rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
 fi
