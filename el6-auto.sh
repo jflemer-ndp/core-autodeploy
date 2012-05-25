@@ -70,7 +70,7 @@ try /usr/bin/mysqladmin -u root -h localhost password ''
 #EPEL:
 if ! check_rpm epel-release-${EPEL_VER}; then
   try wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-${EPEL_VER}.noarch.rpm
-  try rpm -Uvh epel-release-${EPEL_VER}.rpm
+  try rpm -Uvh epel-release-${EPEL_VER}.noarch.rpm
 fi
 
 #DOC BUG: do yum install after EPEL:
