@@ -74,7 +74,7 @@ if ! check_rpm epel-release-${EPEL_VER}; then
 fi
 
 #DOC BUG: do yum install after EPEL:
-try yum -y install erlang gmp gnupg liberation-fonts libgcj.x86_64 libgomp libxslt memcached net-snmp net-snmp-utils perl-DBI rabbitmq-server tk unixODBC
+try yum -y install erlang gmp gnupg libgcj.x86_64 libgomp libxslt memcached net-snmp net-snmp-utils perl-DBI rabbitmq-server tk unixODBC
 
 try chkconfig rabbitmq-server on
 try chkconfig memcached on
