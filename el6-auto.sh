@@ -17,7 +17,7 @@ check_rpm() {
 try yum -y install wget
 
 BRANCH=zenoss-beta
-BUILD=${BUILD:-4.1.70-1523}
+BUILD=${BUILD:-4.1.70-1541}
 # need to auto-detect this:
 try rm -f .listing
 MYSQL_MIRROR=ftp://mirror.anl.gov/pub/mysql/Downloads/MySQL-5.5/
