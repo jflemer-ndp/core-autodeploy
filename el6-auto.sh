@@ -25,7 +25,7 @@ try wget -c --no-remove-listing $MYSQL_MIRROR
 MYSQL_BUILD=`cat .listing | awk '{ print $9 }' | grep MySQL-client | grep el6.x86_64.rpm | sort | tail -n 1`
 MYSQL_BUILD="${MYSQL_BUILD##MySQL-client-}"
 MYSQL_BUILD="${MYSQL_BUILD%%.el6.*}"
-EPEL_VER=6-6
+EPEL_VER=6-7
 echo $MYSQL_BUILD
 
 if ! check_rpm jre; then
